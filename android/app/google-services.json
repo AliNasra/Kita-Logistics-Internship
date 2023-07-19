@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844432902163",
+    "project_id": "kitaproject-9ea3e",
+    "storage_bucket": "kitaproject-9ea3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844432902163:android:e652914141b715d48f17e6",
+        "android_client_info": {
+          "package_name": "com.example.practice_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844432902163-msacfm8s3gru3i76gf91tj6bjgsa4289.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv6QXsoMyB2jmbn_TJxg86yrT_gG4-16E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844432902163-msacfm8s3gru3i76gf91tj6bjgsa4289.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

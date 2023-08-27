@@ -1,9 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:practice_application/home.dart';
 import 'package:practice_application/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:practice_application/forgotPassword.dart';
+import 'package:practice_application/calendar.dart';
+import 'package:practice_application/login_data.dart';
+import 'package:practice_application/search.dart';
+import 'package:provider/provider.dart';
+import 'package:practice_application/addNote.dart';
+import 'activity.dart';
+import 'addressCard.dart';
+import 'listFirm.dart';
+import "map.dart";
+import "map_data.dart";
+import 'database_data.dart';
+import 'recommend.dart';
+import 'profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,20 +76,48 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int entryTrials = 0;
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Home();
-          } else {
-            return PortraitLogin();
-          }
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LoginData>(create: (context) => LoginData()),
+        ChangeNotifierProvider<DatabaseData>(
+            create: (context) => DatabaseData()),
+        ChangeNotifierProvider<MapData>(create: (context) => MapData()),
+      ],
+      child: MaterialApp(
+        navigatorKey: navigatorKey,
+        routes: <String, WidgetBuilder>{
+          '/login': (context) => PortraitLogin(),
+          '/forgotpassword': (context) => forgotPassword(),
+          '/home': (context) => Home(),
+          '/calendar': (context) => calendar(),
+          '/addNote': (context) => addNote(),
+          '/search': (context) => search(MediaQuery.of(context).size.height,
+              MediaQuery.of(context).size.width),
+          '/map': (context) => CompanyMap(),
+          '/address': (context) => AddressCard(),
+          '/profile': (context) => Profile(),
+          '/activity': (context) => activity(),
+          '/list': (context) => ListFirm(),
+          '/recommend': (context) => Recommend(
+              MediaQuery.of(context).size.height,
+              MediaQuery.of(context).size.width),
         },
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Home();
+            } else {
+              return PortraitLogin();
+            }
+          },
+        ),
+        debugShowCheckedModeBanner: false,
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -12,7 +12,12 @@ class Auth {
     await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
   }
-  Future <void> signout() async{
+
+  Future<void> signout() async {
     await _firebaseAuth.signOut();
+  }
+
+  Future<void> sendResetPasswordEmail({required String email}) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

@@ -1,16 +1,18 @@
-# practice_application
+# SPA
 
-A new Flutter project.
+The acronym stands for Smart Planning App.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+### The project was developed during my tenure as an intern at Kita Logistics during the summer of 2023. The project aims to enable its users to:
+* Monitor their performance
+* Organize their schedule
+* Identify suitable customers.
+### The project incorporates the following technologies:
+* Flutter: utilized for Cross-platform compatibility and extensive integration with Google Services
+* Firebase Realtime Database: Used for its simplicity and convenience, especially to android users. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Acknowledgements
+The project was conducted with the gracious aid of:
+* Hüsnü Baran: Acted as my supervisor and mentored me through the learning process.
+* Melih Kılıçer: Assisted with data preparation and UI design.
